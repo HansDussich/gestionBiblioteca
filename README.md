@@ -1,7 +1,7 @@
 # Gestion de Biblioteca con ASP.NET MVC
 
 ## Script de la base de datos:
-  ´´´
+  ´´´bash
   -- Crear base de datos
 create database biblioteca;
 
