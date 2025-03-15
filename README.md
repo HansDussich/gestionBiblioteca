@@ -1,7 +1,7 @@
 # Gestion de Biblioteca con ASP.NET MVC
 
 ## Script de la base de datos:
-  ´´´bash
+  ```bash
   -- Crear base de datos
 create database biblioteca;
 
@@ -18,3 +18,6 @@ create table libros(
 	autorId int not null,
 	constraint fk_libros_autores foreign key (autorId) references Autores(autorId) on delete cascade
 )
+
+```
+
