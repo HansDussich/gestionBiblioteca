@@ -1,0 +1,39 @@
+﻿@model gestionBiblioteca.Models.Libro
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1 class="text-center mb-4 text-danger">Eliminar Libro</h1>
+
+<div class="card shadow-lg p-4 border-danger">
+    <h4 class="text-center text-danger">¿Estás seguro de que quieres eliminar este libro?</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3 fw-bold text-secondary">
+            @Html.DisplayNameFor(model => model.Titulo)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Titulo)
+        </dd>
+
+        <dt class="col-sm-3 fw-bold text-secondary">
+            @Html.DisplayNameFor(model => model.Autor)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Autor.Nombre)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <div class="d-flex justify-content-center mt-3">
+            <button type="submit" class="btn btn-danger me-2">
+                <i class="bi bi-trash"></i> Eliminar
+            </button>
+            <a asp-action="Index" class="btn btn-secondary">
+                <i class="bi bi-arrow-left"></i> Cancelar
+            </a>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,53 @@
+﻿@model IEnumerable<gestionBiblioteca.Models.Libro>
+
+@{
+    ViewData["Title"] = "Gestion de Biblioteca";
+}
+
+<h1 class="text-center mb-4">Libros</h1>
+
+<div class="mb-3 text-center">
+    <a asp-action="Create" class="btn btn-primary">
+        <i class="bi bi-plus-circle"></i> Crear Nuevo Libro
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-info table-bordered table-hover table-striped text-center align-middle">
+        <thead class="table-dark">
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.First().Titulo)</th>
+                <th>@Html.DisplayNameFor(model => model.First().Autor.AutorId)</th>
+                <th>@Html.DisplayNameFor(model => model.First().Autor.Nombre)</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Titulo)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Autor.AutorId)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Autor.Nombre)</td>
+                    <td class="d-flex justify-content-center gap-2">
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning btn-sm">
+                            <i class="bi bi-pencil-square"></i> Editar
+                        </a>
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-success btn-sm">
+                            <i class="bi bi-info-circle"></i> Detalles
+                        </a>
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">
+                            <i class="bi bi-trash"></i> Eliminar
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div class="text-center mt-3">
+    <a asp-controller="Autores" asp-action="Create" class="btn btn-success">
+        <i class="bi bi-person-plus"></i> Crear Nuevo Autor
+    </a>
+</div>

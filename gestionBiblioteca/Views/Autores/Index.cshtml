@@ -1,0 +1,44 @@
+﻿@model IEnumerable<gestionBiblioteca.Models.Autor>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<h1 class="text-center mb-4">Gestión de Autores</h1>
+
+<div class="mb-3 text-center">
+    <a asp-action="Create" class="btn btn-primary">
+        <i class="bi bi-plus-circle"></i> Crear Nuevo Autor
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-bordered table-hover table-striped text-center align-middle">
+        <thead class="table-dark">
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.First().AutorId)</th>
+                <th>@Html.DisplayNameFor(model => model.First().Nombre)</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.AutorId)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Nombre)</td>
+                    <td class="d-flex justify-content-center gap-2">
+                        <a asp-action="Edit" asp-route-id="@item.AutorId" class="btn btn-warning btn-sm">
+                            <i class="bi bi-pencil-square"></i> Editar
+                        </a>
+                        <a asp-action="Details" asp-route-id="@item.AutorId" class="btn btn-success btn-sm">
+                            <i class="bi bi-info-circle"></i> Detalles
+                        </a>
+                        <a asp-action="Delete" asp-route-id="@item.AutorId" class="btn btn-danger btn-sm">
+                            <i class="bi bi-trash"></i> Eliminar
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
